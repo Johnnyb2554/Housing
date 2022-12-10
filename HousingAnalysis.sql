@@ -21,7 +21,6 @@ From PortfolioProject.dbo.NashvilleHousing
 Update NashvilleHousing
 SET SaleDate = CONVERT(Date,SaleDate)
 
--- If it doesn't Update properly
 
 ALTER TABLE NashvilleHousing
 Add SaleDateConverted Date;
@@ -52,7 +51,7 @@ JOIN PortfolioProject.dbo.NashvilleHousing b
 Where a.PropertyAddress is null
 
 
---Note in the UPDATE below you must use the ALIAS (a in this case), not the file name.
+
 Update a
 SET PropertyAddress = ISNULL(a.PropertyAddress,b.PropertyAddress)
 From PortfolioProject.dbo.NashvilleHousing a
@@ -106,8 +105,8 @@ Select *
 From PortfolioProject.dbo.NashvilleHousing
 
 
+--Let's use a different technique for OwnersAddress changes
 
--- Another way to do what we did above. Note there are two commas in owneraddress column tho...
 
 Select OwnerAddress
 From PortfolioProject.dbo.NashvilleHousing
